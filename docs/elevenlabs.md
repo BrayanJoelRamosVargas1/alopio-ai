@@ -29,3 +29,5 @@ Recoge productos y cantidades. Para cualquier modificación envía el carrito co
 ## Validación pendiente
 
 Consulta del menú, pedido por voz/texto, varios productos, cambio de cantidades, cancelación, actualización del carrito y confirmación explícita. El código preparado no acredita conversación real hasta probarlo con una cuenta autenticada.
+
+Estado de configuración real: agente `agent_1001m645ehe2fjmv4ys682bcbxrw` creado en español. Prompt, saludo y herramientas get_menu/set_cart publicados. Widget con identidad AlóPío y acceso desde public/config.json. La prueba llegó al diálogo de términos del widget y no se pulsó Aceptar sin autorización. No se ha verificado conversación real ni ejecución del carrito por el agente.

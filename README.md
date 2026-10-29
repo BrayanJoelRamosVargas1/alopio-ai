@@ -9,7 +9,7 @@ UAGRM. Facultad de Ingeniería en Ciencias de la Computación y Telecomunicacion
 - Frontend sin framework, responsive, publicado como demo local en GitHub Pages.
 - Demo local: registra exclusivamente pedidos confirmados en localStorage `alopio_demo_orders_v1`. No aparenta enviarlos a una cocina ni a Google Sheets. Cancelar el carrito no crea ventas.
 - Backend independiente Node.js 22.13+, HTTP y SQLite, probado localmente. Cotizaciones de 10 minutos, precios autoritativos desde catálogo, sesión firmada HttpOnly, SameSite, protección CSRF/Origin, autorización administrativa e idempotencia por sesión. No confía en precios del frontend.
-- Integración ElevenLabs preparada con widget oficial y herramientas cliente `get_menu` y `set_cart`. No está activada hasta configurar y probar un agente en la cuenta del propietario. Sin conversaciones pregrabadas ni IA simulada. El agente prepara el carrito, el cliente confirma en la página.
+- Agente ElevenLabs creado y configurado en la cuenta del propietario: `agent_1001m645ehe2fjmv4ys682bcbxrw`, español, prompt y herramientas cliente `get_menu` y `set_cart` publicados. Widget real ya carga en la página. La conversación de prueba está pendiente de aceptación explícita de los términos de grabación y almacenamiento.  Sin conversaciones pregrabadas ni IA simulada. El agente prepara el carrito, el cliente confirma en la página.
 - Google Sheets: adaptador backend con cuenta de servicio. Sincronización por IDs mediante un snapshot de la tabla completa, usando values.update y valueInputOption=RAW para prevenir duplicación por reintentos. Requiere cuenta autorizada, ID de hoja y credenciales privadas en backend. No se ha probado escritura real con credenciales.
 - Hoja creada en la cuenta del propietario: https://docs.google.com/spreadsheets/d/1yh6C3s6V7a8sc-2C_LrWWtVkkcfFCRroWXPNfgjQJQE/edit . Privada. Pestaña `Pedidos`, columnas A:J. Esta hoja fue preparada manualmente, no demuestra una sincronización automática.
 
@@ -42,3 +42,7 @@ Pendiente: voz/texto reales con ElevenLabs, registro autenticado en Google Sheet
 ## Archivos
 
 `public/index.html`, `styles.css`, `catalog.json`, `config.json`, `js/app.js`, `js/domain.js`. Backend: `server/index.js`, `server/sheets.js`. Configuración del agente: `docs/elevenlabs.md`. Configuración de Sheets: `docs/google-sheets.md`. Créditos fotográficos en `public/ATTRIBUTIONS.md`.
+
+## Backend Google Apps Script preparado
+
+Se creó un proyecto vinculado a la hoja y se guardó el código de pedidos. El propietario aún debe autorizar su ejecución con permisos de hojas y su publicación como web app DEMO. Hasta entonces `scriptUrl` permanece sin configurar y la web publicada continúa en modo local, aunque el widget de ElevenLabs sí esté instalado. La hoja no recibe pedidos automáticamente todavía. El adaptador alternativo se prueba con mocks en `tests/apps-script.test.js`; esto no prueba permisos, CORS o escritura en Google.

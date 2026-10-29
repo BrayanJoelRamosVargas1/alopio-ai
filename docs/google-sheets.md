@@ -14,3 +14,11 @@ La autenticación usa JWT RS256 y el alcance spreadsheets. Fuentes oficiales: ht
 La base SQLite es fuente de verdad. La hoja es un espejo de los últimos 5.000 pedidos. Cada sincronización escribe la tabla en A:J, incluidos encabezados e IDs, en vez de anexar repetidamente por una respuesta de red ambigua. No editar esa pestaña como catálogo ni colocar otros datos debajo. No es una sincronización bidireccional. La cola se serializa por proceso y los errores conservan el pedido local; el administrador puede reintentar. No ejecutar varias réplicas del backend con distintos discos SQLite.
 
 Estado: adaptador preparado y validado sin credenciales, escritura externa real pendiente.
+
+## Alternativa Apps Script preparada
+
+`docs/Code.gs` implementa un backend DEMO con catálogo autoritativo, sesiones firmadas, cotizaciones de diez minutos, confirmación explícita, bloqueo de escritura e idempotencia. Se preparó un proyecto en la cuenta del propietario: https://script.google.com/home/projects/1GLsMCkrZ5VVGI_844RlYnIBQN8RpM8lxpfxV-R-iuVVLFOU_OzYFUqep/edit .
+
+Pendiente de autorización para publicar la aplicación web que se ejecuta como propietario. Google solicitará permisos de hojas de cálculo. No se amplía el acceso sin confirmación. Una vez publicado, copiar la URL /exec pública en `scriptUrl` de public/config.json. No contiene credenciales privadas. Las sesiones se transmiten como capacidades firmadas, no como cookies de terceros. El script siempre escribe DEMO y restringe la consulta a la sesión. La hoja es privada; las columnas K:L contienen identificadores técnicos de sesión e idempotencia. El catálogo del script debe mantenerse sincronizado con el archivo público.
+
+El frontend envía JSON mediante Content-Type text/plain para evitar preflight. Se debe verificar la respuesta real desde Pages antes de afirmar la integración. El panel administrativo con token requiere el backend Node; con Apps Script la administración se realiza en la hoja privada. Es una alternativa académica sujeta a cuotas de Apps Script, sin SLA ni garantías de producción.
