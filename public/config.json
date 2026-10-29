@@ -1,5 +1,6 @@
 {
   "apiBase": "",
   "agentId": "agent_1001m645ehe2fjmv4ys682bcbxrw",
-  "demo": true
+  "demo": true,
+  "scriptUrl": "https://script.google.com/macros/s/AKfycbxRX5GxqFdI3QxeslKPxQoMgF-xC8yzkcny-sossacddgYjm0kRnxt3RqlT1GTWTNFpwA/exec"
 }
