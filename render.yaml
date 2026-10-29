@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: alopio-ai
+    runtime: node
+    plan: free
+    buildCommand: npm test
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.2
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: 'true'
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: PUBLIC_ORIGIN
+        sync: false
+      - key: DB_PATH
+        value: /tmp/alopio-orders.sqlite
+      - key: ELEVENLABS_AGENT_ID
+        sync: false
