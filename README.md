@@ -46,3 +46,8 @@ Pendiente: voz/texto reales con ElevenLabs, registro autenticado en Google Sheet
 ## Backend Google Apps Script preparado
 
 Se creó un proyecto vinculado a la hoja y se guardó el código de pedidos. El propietario aún debe autorizar su ejecución con permisos de hojas y su publicación como web app DEMO. Hasta entonces `scriptUrl` permanece sin configurar y la web publicada continúa en modo local, aunque el widget de ElevenLabs sí esté instalado. La hoja no recibe pedidos automáticamente todavía. El adaptador alternativo se prueba con mocks en `tests/apps-script.test.js`; esto no prueba permisos, CORS o escritura en Google.
+
+## Presentación comercial
+La interfaz pública usa la marca AlóPío y lenguaje de pollería. La procedencia académica y el carácter de prueba se conservan en la documentación y los registros internos. Mientras no exista conexión al backend, la confirmación indica que se guarda en el dispositivo y no se envía al restaurante. La apariencia comercial no acredita operación de cocina, entrega ni cobros.
+
+Prueba real de chat web completada con ElevenLabs: dos cuartos y una gaseosa actualizan el carrito a Bs 72; cancelar deja el carrito vacío y cero pedidos confirmados. No se probó audio ni llamada telefónica. La autorización de Apps Script aún espera completar la ventana de Google.
